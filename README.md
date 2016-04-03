@@ -15,14 +15,14 @@ jsoup
 
 
 ###Esimerkkitulostus
-viikko 1	671
-viikko 2	526
-viikko 3	439
-viikko 4	403
-viikko 5	366
-viikko 6	339
-viikko 7	324
-viikko 8	313
-viikko 9	201
-viikko 10	92
-viikko 11	14
+    viikko 1  	   671
+    viikko 2         526
+    viikko 3  	   439
+    viikko 4  	   403
+    viikko 5  	   366
+    viikko 6  	   339
+    viikko 9  	   201
+    viikko 7  	   324
+    viikko 8  	   313
+    viikko 10 	   92
+    viikko 11 	   14
