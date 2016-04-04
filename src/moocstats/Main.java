@@ -13,13 +13,9 @@ public class Main {
         double lapipaasyraja = 0.9;
         int kurssiId = 35;
 
-        Tietokanta tietokanta = new Tietokanta(kurssiId, lapipaasyraja);
-        tietokanta.haeData();
+        MoocStats stats = new MoocStats(kurssiId, lapipaasyraja);
+        stats.haeData();
+        stats.tulostaKaikki();
 
-        for (int i = 1; i <= tietokanta.getViikot(); i++) {
-            tietokanta.fail(i);
-            tietokanta.tulostus(i);
-
-        }
     }
 }
