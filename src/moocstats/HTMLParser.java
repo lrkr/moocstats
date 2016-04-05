@@ -10,13 +10,11 @@ import java.util.List;
 public class HTMLParser {
 
     private List<String> luetut;
-    private List<Integer> maxPisteet;
     
     public HTMLParser() {
         this.luetut = new ArrayList<>();
-        this.maxPisteet = new ArrayList<>();
     }
-
+    
     public void HTMLParse(int id) throws Exception {
         String url = "https://tmc.mooc.fi/mooc/courses/" + id + "/points?sort_by=total_points";
         Document doc = Jsoup.connect(url).maxBodySize(10 * 1024 * 1024).get();
@@ -50,6 +48,7 @@ public class HTMLParser {
     }
     
     public List<Integer> parseMaxPisteet() {
+        List<Integer> maxPisteet = new ArrayList<>();
         String rivi = luetut.get(0);
         String[] palat = rivi.split(" ");
         for (int i = 2; i < palat.length; i++) {

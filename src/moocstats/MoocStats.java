@@ -5,27 +5,35 @@ import java.util.List;
 
 public class MoocStats {
 
-    private List<Opiskelija> lista;
+    private List<Opiskelija> opiskelijat;
     private List<Integer> maxPisteet;
     private List<Opiskelija> lapipaasseet;
     private int kurssiId;
     private HTMLParser HTMLParser;
+    private JSONParser JSONParser;
     private double lapipaasyraja;
 
     public MoocStats(int kurssiId, double lapipaasyraja) {
-        this.lista = new ArrayList<>();
+        this.opiskelijat = new ArrayList<>();
         this.maxPisteet = new ArrayList<>();
         this.lapipaasseet = new ArrayList<>();
         this.HTMLParser = new HTMLParser();
+        this.JSONParser = new JSONParser();
         this.kurssiId = kurssiId;
         this.lapipaasyraja = lapipaasyraja;
 
     }
 
-    public void haeData() throws Exception {
+    public void haeDataHTML() throws Exception {
         HTMLParser.HTMLParse(kurssiId);
         maxPisteet = HTMLParser.parseMaxPisteet();
-        lista = HTMLParser.parseOpiskelijat();
+        opiskelijat = HTMLParser.parseOpiskelijat();
+    }
+    
+    public void haeDataJSON() throws Exception {
+        JSONParser.JSONParse(kurssiId);
+        maxPisteet = JSONParser.parseMaxPisteet();        
+        opiskelijat = JSONParser.parseOpiskelijat();
     }
     
     public void tulostaKaikki() {
@@ -37,7 +45,7 @@ public class MoocStats {
     
     public void tulostaViikko(int viikko) {
         lapipaasseet.clear();
-        for (Opiskelija opiskelija : lista) {
+        for (Opiskelija opiskelija : opiskelijat) {
             if (opiskelija.getLapi() == true) {
                 lapipaasseet.add(opiskelija);
             }
@@ -46,7 +54,7 @@ public class MoocStats {
     }
 
     public void failViikko(int viikko) {
-        for (Opiskelija opiskelija : lista) {
+        for (Opiskelija opiskelija : opiskelijat) {
             if (opiskelija.getLapi() == false) {
                 continue;
             }

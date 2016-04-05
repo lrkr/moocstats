@@ -30,6 +30,7 @@ public class Opiskelija {
         this.lapi = false;
     }
     
+    @Override
     public String toString() {
         return this.nimi + "\t" + this.tulokset;
     }
